@@ -28,11 +28,13 @@ const productRoutes=require('./Routes/Product');
 const offerRoutes=require('./Routes/Offers')
 const userRoutes=require('./Routes/User');
 const queryRoutes=require('./Routes/Query');
+const AdminRoutes=require('./Routes/Admin');
 
 app.use(productRoutes);
 app.use(offerRoutes);
 app.use(userRoutes);
 app.use(queryRoutes);
+app.use(AdminRoutes);
 
 app.listen(8000,()=>{
     console.log('server is up and running !');
