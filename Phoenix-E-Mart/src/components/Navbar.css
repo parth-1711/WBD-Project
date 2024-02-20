@@ -2,6 +2,10 @@
   background-color: #b700ff;
 }
 
+/* .main-div is from Sidebar page */
+.main-div{
+  margin-top: 10px;
+}
 
 
 nav {
