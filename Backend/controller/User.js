@@ -85,6 +85,7 @@ exports.getAllUsers = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   const userId = req.query.id;
+  console.log(userId);
 
   try {
     // Find and delete the user based on the user ID

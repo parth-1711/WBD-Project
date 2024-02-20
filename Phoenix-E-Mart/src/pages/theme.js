@@ -140,6 +140,11 @@ export const themeSettings = (mode) => {
               main: colors.grey[500],
               light: colors.grey[100],
             },
+            buttons:{
+              dark: colors.blueAccent[700],
+              main: colors.blueAccent[500],
+              light: colors.blueAccent[100],
+            },
             background: {
               default: colors.primary[500],
             },

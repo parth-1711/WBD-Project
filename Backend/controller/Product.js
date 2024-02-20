@@ -1,5 +1,9 @@
 const Product = require("../models/Product");
+
 const mongoose = require("mongoose");
+
+
+
 
 exports.getAllProducts = async (req, res) => {
   try {
@@ -10,18 +14,18 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
-exports.getSearchResults=async(req,res)=>{
+exports.getSearchResults = async (req, res) => {
   try {
-    const searchmethod=req.query.method;
-    const searchString=req.query.searchString;
+    const searchmethod = req.query.method;
+    const searchString = req.query.searchString;
     let foundProducts;
-    if(searchmethod=='tags'){
-      foundProducts=await Product.find({tags:searchString});
+    if (searchmethod == 'tags') {
+      foundProducts = await Product.find({ tags: searchString });
     }
-    else{
-      foundProducts=await Product.find({title:new RegExp(searchString, 'i')})
+    else {
+      foundProducts = await Product.find({ title: new RegExp(searchString, 'i') })
     }
-    res.status(201).json({foundProducts});
+    res.status(201).json({ foundProducts });
   } catch (error) {
     console.log(error);
   }
@@ -37,17 +41,22 @@ exports.getSingleProduct = async (req, res) => {
   }
 };
 
+
+
 exports.postProduct = async (req, res) => {
   try {
-    const productDetails = req.body;
+    // const productDetails = req.body;
+    const { title, description, age, price,owner, address } = req.body;
+    const images = req.files.map(file => file.filename);
+
     let newProduct = new Product({
-      title: productDetails.title,
-      expectedPrice: productDetails.expectedPrice,
-      oldness: productDetails.oldness,
-      description: productDetails.description,
-      owner: productDetails.owner,
-      imgs: productDetails.imgs,
-      address: productDetails.address,
+      title: title,
+      expectedPrice: price,
+      oldness: age,
+      description: description,
+      owner: owner,
+      imgs: images,
+      address: address,
     });
     await newProduct.save();
     res.status(201).json({ message: "Product Added Successfully !" });

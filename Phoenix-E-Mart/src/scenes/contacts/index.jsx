@@ -4,7 +4,10 @@ import { tokens } from "../../pages/theme";
 // import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import loader from "../../assets/loader.gif";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contacts = () => {
   const theme = useTheme();
@@ -39,7 +42,9 @@ const Contacts = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
-
+  // const [deleteStatus, setdeleteStatus] = useState(null);
+  const idRef = useRef(null);
+  const [toggle, setToggle] = useState(true);
   useEffect(() => {
     setIsFetching(true);
     const fetchUsers = async () => {
@@ -71,7 +76,6 @@ const Contacts = () => {
         });
 
         console.log(data.users);
-        // console.log(data.users);
         setUsers(data.users);
         setIsFetching(false);
       } catch (error) {
@@ -81,56 +85,128 @@ const Contacts = () => {
     };
     setIsFetching(false);
     fetchUsers();
-  }, []);
+  }, [toggle]);
+
+  const handleDelete = async () => {
+    setToggle(false);
+    const id = idRef.current.value;
+    if (id.length == 0) {
+      toast.error("User ID field cannot be empty!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        // transition: Bounce,
+      });
+    } else {
+      const response = await fetch(
+        "http://localhost:8000/deleteUser/?id=" + id,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (response.status != 201) {
+        throw new Error("Error while deleting User!");
+      }
+
+      const resp = await response.json();
+      // setdeleteStatus(resp.message);
+      console.log(resp.message);
+      toast.info(`${resp.message}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        // transition: Bounce,
+      });
+    }
+    setToggle(true);
+  };
 
   return (
-    <Box m="20px">
-      <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
-      />
-      <Box
-        m="40px 0 0 0"
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
-          "& .name-column--cell": {
-            color: colors.greenAccent[300],
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
-          },
-          "& .MuiDataGrid-footerContainer": {
-            borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
-          },
-          "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
-          },
-          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${colors.grey[100]} !important`,
-          },
-        }}
-      >
-        {isFetching && <p>Fetching users list...</p>}
-        <DataGrid
-          getRowId={(row) => row._id}
-          rows={users}
-          columns={columns}
-          components={{ Toolbar: GridToolbar }}
+    <>
+      <Box m="20px">
+        <Header
+          title="CONTACTS"
+          subtitle="List of Contacts for Future Reference"
         />
-        {error && <p>{error}</p>}
+        <Box
+          m="40px 0 0 0"
+          height="75vh"
+          sx={{
+            "& .MuiDataGrid-root": {
+              border: "none",
+            },
+            "& .MuiDataGrid-cell": {
+              borderBottom: "none",
+            },
+            "& .name-column--cell": {
+              color: colors.blueAccent[500],
+            },
+            "& .MuiDataGrid-columnHeaders": {
+              backgroundColor: colors.blueAccent[700],
+              borderBottom: "none",
+            },
+            "& .MuiDataGrid-virtualScroller": {
+              backgroundColor: colors.primary[400],
+            },
+            "& .MuiDataGrid-footerContainer": {
+              borderTop: "none",
+              backgroundColor: colors.blueAccent[700],
+            },
+            "& .MuiCheckbox-root": {
+              color: `${colors.greenAccent[200]} !important`,
+            },
+            "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+              color: `${colors.grey[100]} !important`,
+            },
+          }}
+        >
+          <DataGrid
+            getRowId={(row) => row._id}
+            rows={users}
+            columns={columns}
+            components={{ Toolbar: GridToolbar }}
+          />
+          {error && <p>{error}</p>}
+        </Box>
       </Box>
-    </Box>
+
+      <div className="flex items-center justify-center h-50 w-auto bg-inherit border-2 border-blue-600">
+        {!toggle && <img src={loader} className="h-28 bg-inherit" />}
+        {toggle && (
+          <section className="flex flex-col">
+            <h2 className="pl-20 mb-4">Delete Users</h2>
+            <section className="flex flex-row">
+              <label className="pt-4 text-sky-500 italic mb-5">
+                Enter User ID
+              </label>
+              <input
+                type="text"
+                className="m-3 h-8 w-48 bg-white rounded-md"
+                ref={idRef}
+              ></input>
+            </section>
+            <button
+              onClick={handleDelete}
+              className="m-3 bg-red-600 text-white"
+            >
+              Delete User
+            </button>
+          </section>
+        )}
+      </div>
+      <ToastContainer />
+    </>
   );
 };
 
