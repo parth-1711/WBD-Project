@@ -25,6 +25,7 @@ import HelpPage from "./pages/HelpForm";
 import MyAds from "./pages/MyAds";
 import SavedAddresses from './pages/SavedAddresses'
 import Error from './pages/Error'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [count, setCount] = useState(0);

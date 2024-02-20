@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tokens } from "../../pages/theme";
 import { useState, useEffect } from "react";
+
 const FAQ = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -28,7 +29,7 @@ const FAQ = () => {
         if (data.length === 0) {
           console.log("No queries to handle yet.");
         }
-        // console.log(data.querries);
+        console.log(data.querries);
         setQueries(data.querries);
         setIsFetching(false);
       } catch (error) {
