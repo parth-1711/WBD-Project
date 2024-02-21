@@ -27,13 +27,69 @@ const Topbar = () => {
         <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />
         </IconButton> */}
-        <Link to='/admin/'> <Button color="secondary" style={{margin:'1rem'}}>Dashboard</Button> </Link>
-        <Link to='/admin/team'> <Button color="secondary" style={{margin:'1rem'}}>Team</Button> </Link>
-        <Link to='/admin/calendar'> <Button color="secondary" style={{margin:'1rem'}}>Calendar</Button> </Link>
-        <Link to='/admin/faq'> <Button color="secondary" style={{margin:'1rem'}}>FAQ/Queries</Button> </Link>
-        <Link to='/admin/contacts'> <Button color="secondary" style={{margin:'1rem'}}>Users</Button> </Link>
-        <Link to='/admin/form'> <Button color="secondary" style={{margin:'1rem'}}>Add User</Button> </Link>
-        <Link to='/admin/invoices'> <Button color="secondary" style={{margin:'1rem'}}>Transaction Invoices</Button> </Link>
+        <Link
+          to="/admin/"
+          
+        >
+          {" "}
+          <Button color="buttons" style={{ margin: "1rem" }}>
+            Dashboard
+          </Button>{" "}
+        </Link>
+        <Link
+          to="/admin/team"
+          
+        >
+          {" "}
+          <Button color="buttons" style={{ margin: "1rem" }}>
+            Team
+          </Button>{" "}
+        </Link>
+        <Link
+          to="/admin/calendar"
+          
+        >
+          {" "}
+          <Button color="buttons" style={{ margin: "1rem" }}>
+            Calendar
+          </Button>{" "}
+        </Link>
+        <Link
+          to="/admin/faq"
+          
+        >
+          {" "}
+          <Button color="buttons" style={{ margin: "1rem" }}>
+            FAQ/Queries
+          </Button>{" "}
+        </Link>
+        <Link
+          to="/admin/contacts"
+          
+        >
+          {" "}
+          <Button color="buttons" style={{ margin: "1rem" }}>
+            Users
+          </Button>{" "}
+        </Link>
+        <Link
+          to="/admin/form"
+          
+        >
+          {" "}
+          <Button color="buttons" style={{ margin: "1rem" }}>
+            Add User
+          </Button>{" "}
+        </Link>
+        <Link
+          to="/admin/invoices"
+          
+        >
+          {" "}
+          <Button color="buttons" style={{ margin: "1rem" }}>
+            Transaction Invoices
+          </Button>{" "}
+        </Link>
       </Box>
 
       {/* ICONS */}

@@ -85,6 +85,7 @@ exports.getAllUsers = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   const userId = req.query.id;
+  console.log(userId);
 
   try {
     // Find and delete the user based on the user ID
@@ -101,17 +102,3 @@ exports.deleteUser = async (req, res) => {
   }
 }
 
-exports.adminAddUser = async (req, res) => {
-  const {uname, email, contactNumber, address} = req.body;
-
-  const newUser = new User({
-    uname: uname,
-    email: email,
-    password: uname,
-    address: address,
-    contactNumber: contactNumber,
-  })
-
-  await newUser.save();
-  res.status(201).json({ message: "User registered successfully!" });
-}
