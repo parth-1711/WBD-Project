@@ -26,6 +26,7 @@ import MyAds from "./pages/MyAds";
 import SavedAddresses from './pages/SavedAddresses'
 import Error from './pages/Error'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ChangePasswordPage from "./pages/changePassword";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -83,6 +84,11 @@ function App() {
         {
           path: "/UserProfile",
           element: <UserProfile />,
+          errorElement:<Error/>
+        },
+        {
+          path: "/changePassword",
+          element: <ChangePasswordPage />,
           errorElement:<Error/>
         },
         {

@@ -448,7 +448,7 @@ function SellForm() {
           />
         </form>
       </div>
-    </>
+    
   );
 }
 
