@@ -1,7 +1,7 @@
 // import React, { useRef, useState } from "react";
 import "./SellForm.css";
 import Selector from "./Selector";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 
 // const SellForm = () => {
 //   const authSlice=useSelector((state)=>state.auth)
@@ -374,6 +374,7 @@ function SellForm() {
 
         <br />
         <br />
+        <br /> 
         <hr />
         <br />
         <p>
@@ -432,22 +433,34 @@ function SellForm() {
           Price shouldn't be 0 or less than 0 !
         </div>
 
-        <div
-          // id="pat-warning"
-          className="hidden"
-          // style="text-align: center; color: crimson"
-        >
-          title or age field shouldn't contain special characters !
-        </div>
+          <div
+            // id="pat-warning"
+            className="hidden"
+            // style="text-align: center; color: crimson"
+          >
+            title or age field shouldn't contain special characters !
+          </div>
 
+<<<<<<< HEAD
         <input
           type="submit"
           value="Submit"
-          className="btn btn-outline-success"
+          className="btn btn-outline-success mt-2"
           // style="margin-left: 45%"
         />
       </form>
     </div>
+=======
+          <input
+            type="submit"
+            value="Submit"
+            className="btn btn-outline-success"
+            // style="margin-left: 45%"
+          />
+        </form>
+      </div>
+    </>
+>>>>>>> 39463ecb3267c7f138511f3dfaf9bd34e4f08e52
   );
 }
 

@@ -13,6 +13,7 @@ function CollectProductDetails() {
         </div>
         <div className='col'>  
         <SellHome/>
+        <SellForm/>
         </div>
     </div>
   );
