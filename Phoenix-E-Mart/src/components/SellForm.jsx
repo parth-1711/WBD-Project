@@ -130,6 +130,7 @@ const SellForm = () => {
         <p>Town/City</p>
         <input type="text" ref={cityref} className="addcity" name="city" />
         <br />
+        <br /> 
         <hr />
         <br />
         <p>
@@ -190,7 +191,7 @@ const SellForm = () => {
         <input
           type="submit"
           value="Submit"
-          className="btn btn-outline-success"
+          className="btn btn-outline-success mt-2"
           // style="margin-left: 45%"
         />
       </form>
