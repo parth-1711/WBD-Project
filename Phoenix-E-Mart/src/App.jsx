@@ -28,6 +28,11 @@ import Error from './pages/Error'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ChangePasswordPage from "./pages/changePassword";
 
+// import User from './pages/User'
+import SellHome from "./pages/SellHome";
+import Sidebar from "./pages/Sidebar";
+
+
 function App() {
   const [count, setCount] = useState(0);
   const router = createBrowserRouter([
@@ -105,6 +110,14 @@ function App() {
           path:'/MyOffers',
           element:<Myoffers/>,
           errorElement:<Error/>
+        },
+        // {
+        //   path:'/sellerDashboard',
+        //   element:<Sidebar />
+        // },
+        {
+          path:'/sellerDashboard',
+          element:<SellHome/>
         }
         
       ],  

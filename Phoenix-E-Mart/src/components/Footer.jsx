@@ -70,44 +70,76 @@
 //   );
 // }
 
-import React from 'react';
-import "./Footer.css"
+import React from "react";
+import "./Footer.css";
 
-const Footer=()=>{
-
-  return(
-  <footer>
-  <div className="waves" style={{backgroundColor:'#242424'}}>
-    <div className="wave" id="wave1" style={{backgroundColor:'#242424'}}></div>
-    <div className="wave" id="wave2" style={{backgroundColor:'#242424'}}></div>
-    <div className="wave" id="wave3" style={{backgroundColor:'#242424'}}></div>
-    <div className="wave" id="wave4" style={{backgroundColor:'#242424'}}></div>
-  </div>
-  <ul className="socials">
-    <li>
-      <a href=""><img className="socials_img" src="instagram.png" alt="instagramlogo" /></a>
-    </li>
-    <li>
-      <a href=""><img className="socials_img" src="twitter.png" alt="twitterlogo" /></a>
-    </li>
-    <li>
-      <a href=""><img className="socials_img" src="facebook.png" alt="facebooklogo" /></a>
-    </li>
-    <li>
-      <a href=""><img className="socials_img" src="linkedin.png" alt="linkedinlogo" /></a>
-    </li>
-  </ul>
-  <div className='brandname'>
-    <div>
-    <img className="logo_img" src="logo.png" alt="Brand Logo" />
-    </div>
-    <div className='brandrights'>
-    © 2023 PHOENIX E-MART, Inc.
-    </div>
-  </div>
-</footer>
-)
-
+const Footer = () => {
+  return (
+    <footer>
+      <div className="waves">
+        <div
+          className="wave"
+          id="wave1"
+          style={{ backgroundColor: "#242424" }}
+        ></div>
+        <div
+          className="wave"
+          id="wave2"
+          style={{ backgroundColor: "#242424" }}
+        ></div>
+        <div
+          className="wave"
+          id="wave3"
+          style={{ backgroundColor: "#242424" }}
+        ></div>
+        <div
+          className="wave"
+          id="wave4"
+          style={{ backgroundColor: "#242424" }}
+        ></div>
+      </div>
+      <ul className="socials">
+        <li>
+          <a href="">
+            <img
+              className="socials_img"
+              src="instagram.png"
+              alt="instagramlogo"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img className="socials_img" src="twitter.png" alt="twitterlogo" />
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img
+              className="socials_img"
+              src="facebook.png"
+              alt="facebooklogo"
+            />
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img
+              className="socials_img"
+              src="linkedin.png"
+              alt="linkedinlogo"
+            />
+          </a>
+        </li>
+      </ul>
+      <div className="brandname">
+        <div>
+          <img className="logo_img" src="logo.png" alt="Brand Logo" />
+        </div>
+        <div className="brandrights">© 2023 PHOENIX E-MART, Inc.</div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

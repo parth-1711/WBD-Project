@@ -272,6 +272,7 @@ function SellForm() {
   };
 
   return (
+    <div>
     <div className="containform">
       <p>Please fill in the details</p>
       <br />
@@ -374,6 +375,7 @@ function SellForm() {
 
         <br />
         <br />
+        <br /> 
         <hr />
         <br />
         <p>
@@ -440,77 +442,26 @@ function SellForm() {
             title or age field shouldn't contain special characters !
           </div>
 
+        <input
+          type="submit"
+          value="Submit"
+          className="btn btn-outline-success mt-2"
+          // style="margin-left: 45%"
+        />
+      </form>
+    </div>
+
           <input
             type="submit"
             value="Submit"
             className="btn btn-outline-success"
             // style="margin-left: 45%"
           />
-        </form>
-      </div>
-    
+          </div>
+        
+      
   );
 }
 
 export default SellForm;
 
-// <form onSubmit={handleSubmit}>
-//   <label>
-//     Title:
-//     <input
-//       type="text"
-//       name="title"
-//       value={formData.title}
-//       onChange={handleInputChange}
-//     />
-//   </label>
-//   <br />
-//   <label>
-//     Description:
-//     <textarea
-//       name="description"
-//       value={formData.description}
-//       onChange={handleInputChange}
-//     />
-//   </label>
-//   <br />
-//   <label>
-//     Age:
-//     <input
-//       type="number"
-//       name="age"
-//       value={formData.age}
-//       onChange={handleInputChange}
-//     />
-//   </label>
-//   <br />
-//   <label>
-//     Price:
-//     <input
-//       type="text"
-//       name="price"
-//       value={formData.price}
-//       onChange={handleInputChange}
-//     />
-//   </label>
-//   <br />
-//   <label>
-//     Address:
-//     <input
-//       type="text"
-//       name="address"
-//       value={formData.address}
-//       onChange={handleInputChange}
-//     />
-//   </label>
-//   <br />
-//   <label>
-//     Images:
-//     <input type="file" name="images" multiple onChange={handleImageChange} />
-//   </label>
-//   <label htmlFor="selectedOption">Select Catagory for the product:-</label>
-//      <Selector option={options} onSelect={selectHandler}/>
-//      <br />
-//   <br />
-//   <button type="submit">Submit</button>
-// </form>

@@ -41,8 +41,8 @@ function Sidebar() {
         </div>
         <div> 
         <hr className='text-white'/>
-        <div className='nav-item p-2'> 
-                <span className='p-1'>
+        <div className='nav-item p-2 '> 
+                <span className='p-1 pe-auto'>
                     <i className="bi bi-person-circle me-3 fs-4"></i>
                     <span className='fs-4 '><strong>Log Out</strong></span>
                 </span>
