@@ -56,7 +56,7 @@ exports.signIn = async (req, res) => {
   //   (u) => u.username === username && u.password === password
   // );
 
-  // console.log(user);
+  console.log(user);
   if (user.length) {
     const token = jwt.sign({ id: user._id, username: user.username }, secretKey, {
       expiresIn: "1h",
@@ -67,6 +67,7 @@ exports.signIn = async (req, res) => {
   else {
     res.status(401).json({ message: "Invalid username or password" });
   }
+
 };
 
 exports.getUserProfile = (req, res) => {
@@ -99,6 +100,27 @@ exports.deleteUser = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Internal Server Error' });
+  }
+}
+
+exports.changePass = async (req, res) => {
+  try {
+    let users = await User.find({});
+    res.json({ users: users })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+exports.updatePass = async(req,res) => {
+
+  try {
+    let unamee= req.body.username
+    let pass = req.body.newPass
+    let users = await User.findOneAndUpdate({uname:unamee}, {password:pass});
+    res.json({ users: users })
+  } catch (error) {
+    console.log(error);
   }
 }
 

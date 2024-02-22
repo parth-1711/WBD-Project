@@ -45,7 +45,7 @@ const ProductList = ({ products }) => {
               className="opacity-[25%]"
               style={{ backgroundRepeat: "no-repeat" }}
               alt=""
-              srcset=""
+              srcSet=""
             />
             <p className="text-center">No Advertisements Yet ...</p>
           </div>
