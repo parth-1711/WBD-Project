@@ -1,4 +1,4 @@
-// import React, { useRef, useState } from "react";
+import React from "react";
 import "./SellForm.css";
 import Selector from "./Selector";
 import { useSelector } from "react-redux";
@@ -272,195 +272,185 @@ function SellForm() {
   };
 
   return (
-    <div className="containform">
-      <p>Please fill in the details</p>
-      <br />
-      <hr />
-      <br />
-      <form onSubmit={submitHandler}>
-        <p>Ad title:</p>
-        <input
-          type="text"
-          className="adtitl"
-          name="title"
-          value={formData.title}
-          onChange={handleInputChange}
-        />
-        <br />
-
-        <p className="text-slate-400">
-          Mention the name of your item with some key features
-        </p>
-        <br />
-
-        <p>Description</p>
-
-        <textarea
-          className="adddesc"
-          name="description"
-          value={formData.description}
-          onChange={handleInputChange}
-        />
-        <br />
-        <p className="text-slate-400">
-          Include condition, features and reason for selling
-        </p>
-        <br />
-        <label htmlFor="selectedOption">Slect Catagory for the product:-</label>
-        <Selector option={options} onSelect={handleInputChange} />
-        <br />
-
-        <p>How old is your item</p>
-        <input
-          type="text"
-          className="addoldness"
-          name="age"
-          value={formData.age}
-          onChange={handleInputChange}
-        />
-        <br />
-        <p className="text-slate-400">Mention clearly</p>
-        <br />
-        <p>Set price:</p>
-        <input
-          type="text"
-          // ref={priceRef}
-          className="addprice"
-          name="price"
-          value={formData.price}
-          onChange={handleInputChange}
-
-        />
-        <br />
-        <p className="text-slate-400">In rupees ₹</p>
+    <>
+      `<div className="containform">
+        <p>Please fill in the details</p>
         <br />
         <hr />
         <br />
-        <p>
-          <i className="fa fa-address-book-o"></i> Please confirm your address
-        </p>
-        {/* <br />
-        <p>Flat, House no., Building, Company, Apartment</p>
-        <input className="addflat" type="text" name="flat" />
-        <p className="text-slate-400">Address line 1</p>
-        <br />
-        <p>Area, Street, Sector, Village</p>
-        <input
-          className="addstreet"
-          // ref={addln2Ref}
-          type="text"
-          name="street"
-        />
-        <p className="text-slate-400">Address line 2</p>
-        <br />
-        <p>Landmark</p>
-        <input
-          className="addlandmark"
-          // ref={addln3Ref}
-          type="text"
-          name="landmark"
-        />
-        <br />
-        <br />
-        <p>Town/City</p>
-        <input type="text" className="addcity" name="city" /> */}
-        <input
-          type="text"
-          className="addcity"
-          name="address"
-          value={formData.address}
-          onChange={handleInputChange}
-        />
+        <form onSubmit={submitHandler}>
+          <p>Ad title:</p>
+          <input
+            type="text"
+            className="adtitl"
+            name="title"
+            value={formData.title}
+            onChange={handleInputChange}
+          />
+          <br />
 
-        <br />
-        <br />
-        <br /> 
-        <hr />
-        <br />
-        <p>
-          <i className="fa fa-link "></i> Add Drive link
-        </p>
-        <br />
-        <p>Images:</p>
-        <input
-          className="addimages"
-          type="file"
-          name="images"
-          multiple
-          onChange={handleImageChange}
-        />
+          <p className="text-slate-400">
+            Mention the name of your item with some key features
+          </p>
+          <br />
 
-        {/* <p>Front View</p>
-        <input
-          type="text"
-          // ref={img1ref}
-          className="addlandmark"
-          name="images1"
-        />
-        <p className="text-slate-400">Paste the Drive link of image</p>
-        <br />
-        <p>Back View</p>
-        <input
-          type="text"
-          // ref={img2ref}
-          className="addlandmark"
-          name="images2"
-        />
-        <p>Paste the Drive link of image</p>
-        <br />
-        <p>Side View</p>
-        <input
-          type="text"
-          // ref={img3ref}
-          className="addlandmark"
-          name="images3"
-        />
-        <p className="text-slate-400">Paste the Drive link of image</p> */}
-        <br />
-        <hr />
-        <div
-          // id="empty-warning"
-          className="hidden"
-          // style="text-align: center; color: crimson"
-        >
-          Any field shouldn't be empty !
-        </div>
-        <div
-          // id="neg-warning"
-          className="hidden"
-          // style="text-align: center; color: crimson"
-        >
-          Price shouldn't be 0 or less than 0 !
-        </div>
+          <p>Description</p>
 
+          <textarea
+            className="adddesc"
+            name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+          />
+          <br />
+          <p className="text-slate-400">
+            Include condition, features and reason for selling
+          </p>
+          <br />
+          <label htmlFor="selectedOption">Slect Catagory for the product:-</label>
+          <Selector option={options} onSelect={handleInputChange} />
+          <br />
+
+          <p>How old is your item</p>
+          <input
+            type="text"
+            className="addoldness"
+            name="age"
+            value={formData.age}
+            onChange={handleInputChange}
+          />
+          <br />
+          <p className="text-slate-400">Mention clearly</p>
+          <br />
+          <p>Set price:</p>
+          <input
+            type="text"
+            // ref={priceRef}
+            className="addprice"
+            name="price"
+            value={formData.price}
+            onChange={handleInputChange}
+
+          />
+          <br />
+          <p className="text-slate-400">In rupees ₹</p>
+          <br />
+          <hr />
+          <br />
+          <p>
+            <i className="fa fa-address-book-o"></i> Please confirm your address
+          </p>
+          {/* <br />
+          <p>Flat, House no., Building, Company, Apartment</p>
+          <input className="addflat" type="text" name="flat" />
+          <p className="text-slate-400">Address line 1</p>
+          <br />
+          <p>Area, Street, Sector, Village</p>
+          <input
+            className="addstreet"
+            // ref={addln2Ref}
+            type="text"
+            name="street"
+          />
+          <p className="text-slate-400">Address line 2</p>
+          <br />
+          <p>Landmark</p>
+          <input
+            className="addlandmark"
+            // ref={addln3Ref}
+            type="text"
+            name="landmark"
+          />
+          <br />
+          <br />
+          <p>Town/City</p>
+          <input type="text" className="addcity" name="city" /> */}
+          <input
+            type="text"
+            className="addcity"
+            name="address"
+            value={formData.address}
+            onChange={handleInputChange}
+          />
+
+          <br />
+          <br />
+          <br /> 
+          <hr />
+          <br />
+          <p>
+            <i className="fa fa-link "></i> Add Drive link
+          </p>
+          <br />
+          <p>Images:</p>
+          <input
+            className="addimages"
+            type="file"
+            name="images"
+            multiple
+            onChange={handleImageChange}
+          />
+
+          {/* <p>Front View</p>
+          <input
+            type="text"
+            // ref={img1ref}
+            className="addlandmark"
+            name="images1"
+          />
+          <p className="text-slate-400">Paste the Drive link of image</p>
+          <br />
+          <p>Back View</p>
+          <input
+            type="text"
+            // ref={img2ref}
+            className="addlandmark"
+            name="images2"
+          />
+          <p>Paste the Drive link of image</p>
+          <br />
+          <p>Side View</p>
+          <input
+            type="text"
+            // ref={img3ref}
+            className="addlandmark"
+            name="images3"
+          />
+          <p className="text-slate-400">Paste the Drive link of image</p> */}
+          <br />
+          <hr />
           <div
-            // id="pat-warning"
+            // id="empty-warning"
             className="hidden"
             // style="text-align: center; color: crimson"
           >
-            title or age field shouldn't contain special characters !
+            Any field shouldn't be empty !
+          </div>
+          <div
+            // id="neg-warning"
+            className="hidden"
+            // style="text-align: center; color: crimson"
+          >
+            Price shouldn't be 0 or less than 0 !
           </div>
 
-<<<<<<< HEAD
-        <input
-          type="submit"
-          value="Submit"
-          className="btn btn-outline-success mt-2"
-          // style="margin-left: 45%"
-        />
-      </form>
-    </div>
-=======
-          <input
-            type="submit"
-            value="Submit"
-            className="btn btn-outline-success"
-            // style="margin-left: 45%"
-          />
-        </form>
-      </div>
+            <div
+              // id="pat-warning"
+              className="hidden"
+              // style="text-align: center; color: crimson"
+            >
+              title or age field shouldn't contain special characters !
+            </div>
+
+            <input
+              type="submit"
+              value="Submit"
+              className="btn btn-outline-success"
+              // style="margin-left: 45%"
+            />
+          </form>
+        </div>
     </>
->>>>>>> 39463ecb3267c7f138511f3dfaf9bd34e4f08e52
   );
 }
 
