@@ -43,8 +43,8 @@ exports.getSingleProduct = async (req, res) => {
 exports.postProduct = async (req, res) => {
   try {
     // const productDetails = req.body;
-    const { title, description, age, price,owner, address } = req.body;
-    const images = req.files.map(file => file.filename);
+    const { title, description, age, price,owner, address,tags } = req.body;
+    const images = req.files.map(file => "http://localhost:8000/images/"+file.filename);
 
     let newProduct = new Product({
       title: title,
@@ -54,6 +54,7 @@ exports.postProduct = async (req, res) => {
       owner: owner,
       imgs: images,
       address: address,
+      tags:tags
     });
     await newProduct.save();
     res.status(201).json({ message: "Product Added Successfully !" });

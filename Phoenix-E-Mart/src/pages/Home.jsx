@@ -9,13 +9,19 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   const user = useSelector((state) => state.auth);
-  console.log(user);
+  // console.log(user);
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("http://localhost:8000/getAllProducts");
+      const response = await fetch("http://localhost:8000/getAllProducts",
+      {
+        headers:{
+          'Authorization':localStorage.getItem('token')
+        }
+      }
+      );
       const data = await response.json();
-      // console.log(data.products);
+      console.log(data.products);
       setProductList(data.products);
     };
     fetchProducts();

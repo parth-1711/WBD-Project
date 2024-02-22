@@ -6,7 +6,11 @@ const MyAds = () => {
     const authSlice=useSelector((state)=>state.auth)
     useEffect(()=>{
         const fetchProduct=async()=>{
-            const response=await fetch('http://localhost:8000/getAllProducts');
+            const response=await fetch('http://localhost:8000/getAllProducts',{
+            headers:{
+              'Authorization':localStorage.getItem('token')
+            }}
+            );
             const data=await response.json();
             console.log(data);
             setProducts(data.products.filter((product)=>product.owner==authSlice.user.uname))

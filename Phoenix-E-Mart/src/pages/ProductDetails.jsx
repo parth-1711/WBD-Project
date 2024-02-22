@@ -84,7 +84,7 @@ const ProductDetails = () => {
           <p>
             <span className={classes.textgradient}>Expected Price:-</span>
           </p>
-          <h3> ₹ {product1.expectedPrice}</h3>
+          <h3 className="font-semibold text-lg"> ₹ {product1.expectedPrice}</h3>
           <br />
           <hr />
           <br />
@@ -108,15 +108,20 @@ const ProductDetails = () => {
             {/* <button type="button" className="btn btn-outline-primary">
               Offer
             </button> */}
+
             <div className={classes.offerbtn}>
-              <input type="submit" value={"Offer"} />
+              <div className="flex flex-row justify-center items-center pt-2">
+                <input type="submit" value={"Offer"} />
+              </div>
             </div>
           </form>
         </div>
       </div>
       <div className="">
         <div className={classes.title}>
-          <h3 className={classes.textgradient}>{product1.title}</h3>
+          <div className="bg-fuchsia-400 w-full text-center p-3 rounded-[15px]">
+            <h3 className={classes.textgradient}>{product1.title}</h3>
+          </div>
         </div>
         <div className={classes.description}>
           <p>
