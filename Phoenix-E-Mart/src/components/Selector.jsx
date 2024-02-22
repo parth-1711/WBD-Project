@@ -22,7 +22,7 @@ const Selector = (props) => {
         onChange={handleSelectChange}
         style={{
           backgroundColor: 'purple',
-          color: 'black',
+          color: 'white',
           padding: '8px',
           borderRadius: '4px',
           border: '1px solid black',

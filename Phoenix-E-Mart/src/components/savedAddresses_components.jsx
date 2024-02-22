@@ -2,47 +2,12 @@ import React, { useState } from 'react';
 import './CSS/styles.css'
 import './CSS/navbar.css'
 
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'jquery/dist/jquery.min.js'
-// import 'bootstrap/dist/js/bootstrap.min.js'
 
 const SavedAddresseshead = () => {
   return (
     <html>
-      {/* <head>
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Saved Addresses</title>
-        <link rel="icon" type="image/x-icon" href="/images/logo.png" />
-
-        {/* External Stylesheets */}
-        {/* <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-
-        {/* Bootstrap JS */}
-        {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-        {/* Custom Stylesheets */}
-        {/* <link rel="stylesheet" href="/CSS/styles.css" />
-        <link rel="stylesheet" href="/CSS/navbar.css" />
-      </head> */}
+      
       <body>
-        {/* Your page content goes here */}
       </body>
     </html>
   );

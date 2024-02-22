@@ -63,21 +63,18 @@ export const Navbar = () => {
               placeholder="Search for products"
             />
             <div className="input-group-append">
-              <button className="btn btn-secondary" type="button">
-                <i className="fa fa-search"></i>
+              <button className="btn btn-primary" type="button">
+                Search
               </button>
             </div>
           </div>
         </form>
         <ul className={menuOpen ? "open" : ""}>
           <li>
-            <NavLink to="/aboutUs" className="menu-links">
+            <NavLink to="/aboutUs" className="menu-links ml-6">
               About Us
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/services" className='menu-links'>Services</NavLink>
-          </li> */}
           <li>
             <NavLink to="/contact" className="menu-links">
               Contact Us

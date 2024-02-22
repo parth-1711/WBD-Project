@@ -41,24 +41,23 @@ body{
     padding-bottom: 5px;
     padding-top: 10px;
 }
-.heading{
+/* .heading{
     text-align: center;
     margin-top: 20px;
 }
 .heading h1{
-    font-size: 50px;
-    color: #fcfcfc;
+    font-size: 40px;
     margin-bottom: 10px;
 }
 .heading p{
     font-size: 20px;
     color: #ffffff;
     margin-bottom: 2%;
-}
+} */
 .headingB{
-    font-size:35px; 
+    font-size:25px; 
     text-align: center;
-    background-color: rgb(188, 138, 235);
+    background-color: rgb(188, 117, 255);
     padding: 10px;
 }
 .about-us{
