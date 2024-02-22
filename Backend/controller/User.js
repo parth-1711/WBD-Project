@@ -56,7 +56,7 @@ exports.signIn = async (req, res) => {
   //   (u) => u.username === username && u.password === password
   // );
 
-  console.log(user);
+  // console.log(user);
   if (user.length) {
     const token = jwt.sign({ id: user._id, username: user.username }, secretKey, {
       expiresIn: "1h",

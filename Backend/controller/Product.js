@@ -2,9 +2,6 @@ const Product = require("../models/Product");
 
 const mongoose = require("mongoose");
 
-
-
-
 exports.getAllProducts = async (req, res) => {
   try {
     const productArray = await Product.find({});

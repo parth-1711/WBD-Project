@@ -17,13 +17,10 @@ const Home = () => {
       const data = await response.json();
       // console.log(data.products);
       setProductList(data.products);
-      // return data;
     };
     fetchProducts();
   }, []);
 
-  // productList
-  // console.log(productList);
   return (
     <div>
       <MyComponent />

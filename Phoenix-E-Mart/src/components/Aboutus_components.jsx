@@ -60,9 +60,9 @@ const AboutUs_1 = () => {
         <div className="content">
           <h2 className="text-black underline ">Our Aim : </h2>
           <p style={{ color: "black" }}>
-            To provide a userfriendly and trusted platform for trade of verified
+            To provide an userfriendly and trusted platform for trade of verified
             2<sup>nd</sup> hand products. In future, we aim to provide a
-            platform for real-time auction/bidding of exclusing items and
+            platform for real-time auction/bidding of exclusive items and
             collectibles. Stay tuned for further updates.
           </p>
         </div>
