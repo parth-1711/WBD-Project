@@ -52,11 +52,11 @@ export const Navbar = () => {
           </div> */}
 
           {/* <div> */}
-            <div class="input-group" style={{marginLeft:'10px'}}>
-              <input type="text" class="form-control" style={{width:'500px'}} ref={searchString} placeholder="Search for products" />
-                <div class="input-group-append">
-                  <button class="btn btn-secondary" type="button">
-                  <i class="fa fa-search"></i>
+            <div className="input-group" style={{marginLeft:'10px'}}>
+              <input type="text" className="form-control" style={{width:'500px'}} ref={searchString} placeholder="Search for products" />
+                <div className="input-group-append">
+                  <button className="btn btn-secondary" type="button">
+                  <i className="fa fa-search"></i>
                   </button>
                 </div>
             </div>
@@ -74,7 +74,7 @@ export const Navbar = () => {
         </ul>
 
         <button className="navbar-toggle" onClick={toggleOverlay}>
-          <img src="userLogo.png" alt="" srcset="" className="max-h-16 rounded-s-full rounded-e-full	bg-black"/>
+          <img src="userLogo.png" alt="" className="max-h-16 rounded-s-full rounded-e-full	bg-black"/>
         </button>
 
         {overlayVisible && (

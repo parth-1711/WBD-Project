@@ -7,16 +7,18 @@ const mongoose = require("mongoose");
 //   { id: 2, username: "user2", password: "password2" },
 // ];
 
-const secretKey = "yourSecretKey";
+const secretKey = "y0u<380085fr0nt00s1de)t0p3";
 
 exports.verifyToken = (req, res, next) => {
   const token = req.headers["authorization"];
+  // console.log(token);
 
-  if (!token) {
+  if (token=='null') {
+    // console.log("temp");
     return res.status(403).json({ message: "Token not provided" });
   }
 
-  jwt.verify(token, secretKey, (err, user) => {
+  else jwt.verify(token, secretKey, (err, user) => {
     if (err) {
       return res.status(401).json({ message: "Invalid token" });
     }
@@ -28,9 +30,11 @@ exports.verifyToken = (req, res, next) => {
 
 exports.signUp = async (req, res) => {
   const { username, Email, password } = req.body;
-
+  const user = await User.find({ email: Email});
   // For simplicity, don't perform actual validation here
   // Add user to the database (don't store passwords in plain text in production)
+  if(user.length) res.status(401).json({message:"Email is already in use try Different Email!"})
+
   let newUser = new User({
     uname: username,
     email: Email,

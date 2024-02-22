@@ -47,7 +47,7 @@ exports.postProduct = async (req, res) => {
   try {
     // const productDetails = req.body;
     const { title, description, age, price,owner, address } = req.body;
-    const images = req.files.map(file => file.filename);
+    const images = req.files.map(file => "http://localhost:8000/images/"+file.filename);
 
     let newProduct = new Product({
       title: title,

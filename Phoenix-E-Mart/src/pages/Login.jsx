@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import auth, { authActions } from "../store/auth";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -27,14 +29,17 @@ const LoginForm = () => {
         },
         body: JSON.stringify(user),
       });
-      console.log(response.status);
+      // console.log(response.status);
       let data = await response.json();
       dispatch(authActions.login(data))
-      console.log(data);
+      // console.log(data);
       if(response.status==201){
+        toast.success("Account Already Verified",{position:"top-center"});
         navigate('/home')
       }
-      
+      if(response.status==401){
+        toast.error(data.message,{position:"top-center"});
+      }
     }
     else{
       navigate('/admin');
@@ -139,6 +144,7 @@ const LoginForm = () => {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
