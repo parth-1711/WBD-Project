@@ -84,7 +84,7 @@ export const Navbar = () => {
 
         <button className="navbar-toggle" onClick={toggleOverlay}>
           <img
-            src="userLogo.png"
+            src="user.png"
             alt=""
             srcSet=""
             className="max-h-16 rounded-s-full rounded-e-full	bg-black"

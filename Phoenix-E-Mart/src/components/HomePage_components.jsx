@@ -80,7 +80,7 @@ const Categories = () => {
         </Link>
         <Link
           className="category_1"
-          to="/Aftersearch?method=tags&searchString=electronics"
+          to="/Aftersearch?method=tags&searchString=hardware"
         >
           <div className="categories">
             <img className="catimg" src="hardware.png" alt="elecimg" />
@@ -185,7 +185,7 @@ const Recommendations = (props) => {
       <div className="cardscon">
         <div className="category1">
           <div className="container">
-            {productList.slice(0, 16).map((product, index) => (
+            {productList && productList.slice(0, 16).map((product, index) => (
               <Link key={index} to={`/productDetails?param=${product._id}`}>
                 <div
                   className="card transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-purple-400 duration-300"

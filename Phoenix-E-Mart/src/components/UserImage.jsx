@@ -4,7 +4,7 @@ import classes from './UserImage.module.css'
 const UserImage = ({user}) => {
   return (
     <div className={classes.imgdiv}>
-        <img src="userLogo.png" alt="user" className='rounded-s-full rounded-e-full'/>
+        <img src="user.png" alt="user" className='rounded-s-full rounded-e-full'/>
         <p>{user.uname}</p>
     </div>
   )

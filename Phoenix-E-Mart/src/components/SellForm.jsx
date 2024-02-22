@@ -33,6 +33,12 @@ function SellForm() {
     });
   };
 
+  const tagHandler=(catg)=>{
+    setFormData({
+      ...formData,
+      ['tags']: catg,
+    });
+  }
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setFormData({
@@ -72,7 +78,7 @@ function SellForm() {
       );
       console.log(response);
       console.log("Form submitted successfully");
-      toast.success(`${rspmsg.message}`, {
+      toast.success(`${response.message}`, {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -91,15 +97,15 @@ function SellForm() {
 
   return (
     <>
-      <div className="containform bg-fuchsia-500 ">
-        <p className="text-2xl font-semibold">
+      <div className="containform bg-black ">
+        <p className="text-2xl font-semibold text-orange-600">
           Please fill in the product details
         </p>
         <br />
         <hr />
         <br />
         <form onSubmit={submitHandler}>
-          <p className="font-semibold">Ad title:</p>
+          <p className="font-semibold text-orange-400">Ad title:</p>
           <input
             type="text"
             className="adtitl"
@@ -110,12 +116,12 @@ function SellForm() {
           />
           <br />
 
-          <p className="text-black">
+          <p className="text-white">
             Mention the name of your item with some key features
           </p>
           <br />
 
-          <p className="font-semibold">Description</p>
+          <p className="font-semibold text-orange-400">Description</p>
 
           <textarea
             className="adddesc"
@@ -124,17 +130,17 @@ function SellForm() {
             onChange={handleInputChange}
           />
           <br />
-          <p className="text-black">
+          <p className="text-white">
             Include condition, features and reason for selling
           </p>
           <br />
-          <label htmlFor="selectedOption" className="mb-8 font-semibold">
+          <label htmlFor="selectedOption" className="mb-8 font-semibold text-orange-400">
             Select Catagory for the product:-
           </label>
-          <Selector option={options} onSelect={handleInputChange} />
+          <Selector option={options} onSelect={tagHandler} />
           <br />
 
-          <p className="font-semibold">How old is your item?</p>
+          <p className="font-semibold text-orange-400">How old is your item?</p>
           <input
             type="text"
             className="addoldness"
@@ -144,9 +150,9 @@ function SellForm() {
             required
           />
           <br />
-          <p className="text-black">Mention clearly</p>
+          <p className="text-white">Mention clearly</p>
           <br />
-          <p className="font-semibold">Set price:</p>
+          <p className="font-semibold text-orange-400">Set price:</p>
           <input
             type="text"
             // ref={priceRef}
@@ -157,11 +163,11 @@ function SellForm() {
             required
           />
           <br />
-          <p className="text-black">In rupees ₹</p>
+          <p className="text-white">In rupees ₹</p>
           <br />
           <hr />
           <br />
-          <p className="font-semibold">
+          <p className="font-semibold text-orange-400">
             <i className="fa fa-address-book-o"></i> Please confirm your address
           </p>
           <input
@@ -176,11 +182,9 @@ function SellForm() {
           <br />
           <hr />
           <br />
-          <p className="font-semibold">
-            <i className="fa fa-link "></i> Add Drive link
-          </p>
+          
           <br />
-          <p className="font-semibold mb-6">Upload Images :-</p>
+          <p className="font-semibold mb-6 text-orange-400">Upload Images :-</p>
           <input
             className="addimages"
             type="file"
