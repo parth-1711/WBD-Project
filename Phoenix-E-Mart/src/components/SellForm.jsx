@@ -1,15 +1,18 @@
-// import React, { useRef, useState } from "react";
+import React from "react";
 import "./SellForm.css";
 import Selector from "./Selector";
 import { useSelector } from "react-redux";
-
-let options = ["electronics", "automobile", "mobiles", "furniture", "hardware"];
-
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
+let options = ["electronics", "automobile", "mobiles", "furniture", "hardware"];
+
 function SellForm() {
   const authSlice = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: "",
@@ -69,6 +72,18 @@ function SellForm() {
       );
       console.log(response);
       console.log("Form submitted successfully");
+      toast.success(`${rspmsg.message}`, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        // transition: Bounce,
+      });
+      navigate("/MyAds");
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -76,28 +91,31 @@ function SellForm() {
 
   return (
     <>
-      <div className="containform">
-        <p>Please fill in the details</p>
+      <div className="containform bg-fuchsia-500 ">
+        <p className="text-2xl font-semibold">
+          Please fill in the product details
+        </p>
         <br />
         <hr />
         <br />
         <form onSubmit={submitHandler}>
-          <p>Ad title:</p>
+          <p className="font-semibold">Ad title:</p>
           <input
             type="text"
             className="adtitl"
             name="title"
             value={formData.title}
             onChange={handleInputChange}
+            required
           />
           <br />
 
-          <p className="text-slate-400">
+          <p className="text-black">
             Mention the name of your item with some key features
           </p>
           <br />
 
-          <p>Description</p>
+          <p className="font-semibold">Description</p>
 
           <textarea
             className="adddesc"
@@ -106,28 +124,29 @@ function SellForm() {
             onChange={handleInputChange}
           />
           <br />
-          <p className="text-slate-400">
+          <p className="text-black">
             Include condition, features and reason for selling
           </p>
           <br />
-          <label htmlFor="selectedOption">
-            Slect Catagory for the product:-
+          <label htmlFor="selectedOption" className="mb-8 font-semibold">
+            Select Catagory for the product:-
           </label>
           <Selector option={options} onSelect={handleInputChange} />
           <br />
 
-          <p>How old is your item</p>
+          <p className="font-semibold">How old is your item?</p>
           <input
             type="text"
             className="addoldness"
             name="age"
             value={formData.age}
             onChange={handleInputChange}
+            required
           />
           <br />
-          <p className="text-slate-400">Mention clearly</p>
+          <p className="text-black">Mention clearly</p>
           <br />
-          <p>Set price:</p>
+          <p className="font-semibold">Set price:</p>
           <input
             type="text"
             // ref={priceRef}
@@ -135,39 +154,40 @@ function SellForm() {
             name="price"
             value={formData.price}
             onChange={handleInputChange}
+            required
           />
           <br />
-          <p className="text-slate-400">In rupees ₹</p>
+          <p className="text-black">In rupees ₹</p>
           <br />
           <hr />
           <br />
-          <p>
+          <p className="font-semibold">
             <i className="fa fa-address-book-o"></i> Please confirm your address
           </p>
-
           <input
             type="text"
             className="addcity"
             name="address"
             value={formData.address}
             onChange={handleInputChange}
+            required
           />
-
           <br />
           <br />
           <hr />
           <br />
-          <p>
+          <p className="font-semibold">
             <i className="fa fa-link "></i> Add Drive link
           </p>
           <br />
-          <p>Images:</p>
+          <p className="font-semibold mb-6">Upload Images :-</p>
           <input
             className="addimages"
             type="file"
             name="images"
             multiple
             onChange={handleImageChange}
+            required
           />
 
           <br />
@@ -198,9 +218,11 @@ function SellForm() {
           <input
             type="submit"
             value="Submit"
-            className="btn btn-outline-success"
+            className="btn btn-outline-success mt-6 ml-96 bg-green-500 text-neutral-50"
+            required
             // style="margin-left: 45%"
           />
+          <ToastContainer />
         </form>
       </div>
     </>

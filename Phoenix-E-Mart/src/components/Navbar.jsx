@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./Navbar.css";
-import 'font-awesome/css/font-awesome.min.css'
+import "font-awesome/css/font-awesome.min.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import auth, { authActions } from "../store/auth";
@@ -8,29 +8,31 @@ import auth, { authActions } from "../store/auth";
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
 
   const toggleOverlay = () => {
     setOverlayVisible(!overlayVisible);
   };
-  let searchString=useRef();
-  let navigate=useNavigate();
+  let searchString = useRef();
+  let navigate = useNavigate();
 
-  const searchhandler=(event)=>{
+  const searchhandler = (event) => {
     event.preventDefault();
-    navigate('/AfterSearch?method=title&searchString='+searchString.current.value);
-  }
+    navigate(
+      "/AfterSearch?method=title&searchString=" + searchString.current.value
+    );
+  };
 
-  const logoutHandler=()=>{
-    localStorage.removeItem('user')
-    localStorage.removeItem('isAuth')
-    localStorage.removeItem('token')
-    dispatch(authActions.logout)
-    navigate('/')
-  }
+  const logoutHandler = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("isAuth");
+    localStorage.removeItem("token");
+    dispatch(authActions.logout);
+    navigate("/");
+  };
 
   return (
-    <nav style={{height:'10px'}}>
+    <nav style={{ height: "10px" }}>
       <div className="navbar-contents">
         <Link to="/home" className="title">
           <div className="logo">
@@ -52,38 +54,59 @@ export const Navbar = () => {
           </div> */}
 
           {/* <div> */}
-            <div className="input-group" style={{marginLeft:'10px'}}>
-              <input type="text" className="form-control" style={{width:'500px'}} ref={searchString} placeholder="Search for products" />
-                <div className="input-group-append">
-                  <button className="btn btn-secondary" type="button">
-                  <i className="fa fa-search"></i>
-                  </button>
-                </div>
+          <div className="input-group" style={{ marginLeft: "10px" }}>
+            <input
+              type="text"
+              className="form-control"
+              style={{ width: "500px" }}
+              ref={searchString}
+              placeholder="Search for products"
+            />
+            <div className="input-group-append">
+              <button className="btn btn-primary" type="button">
+                Search
+              </button>
             </div>
+          </div>
         </form>
         <ul className={menuOpen ? "open" : ""}>
           <li>
-            <NavLink to="/aboutUs" className='menu-links'>About Us</NavLink>
+            <NavLink to="/aboutUs" className="menu-links ml-6">
+              About Us
+            </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/services" className='menu-links'>Services</NavLink>
-          </li> */}
           <li>
-            <NavLink to="/contact" className='menu-links'>Contact Us</NavLink>
+            <NavLink to="/contact" className="menu-links">
+              Contact Us
+            </NavLink>
           </li>
         </ul>
 
         <button className="navbar-toggle" onClick={toggleOverlay}>
-          <img src="userLogo.png" alt="" className="max-h-16 rounded-s-full rounded-e-full	bg-black"/>
+          <img
+            src="userLogo.png"
+            alt=""
+            srcSet=""
+            className="max-h-16 rounded-s-full rounded-e-full	bg-black"
+          />
         </button>
 
         {overlayVisible && (
-          <div className="overlay" onClick={toggleOverlay}>
+          <div className="overlay z-10" onClick={toggleOverlay}>
             {/* Content of the overlay */}
-            <div style={{backgroundColor:'bisque'}} className="overlay-content">
+            <div
+              style={{ backgroundColor: "bisque" }}
+              className="overlay-content"
+            >
               <Link to={"/userProfile"} className="text-decoration-none">
                 <div className="color-black font-semibold text-lg m-4 text-black	">
                   User Profile
+                </div>
+              </Link>
+              <hr className="bg-black" />
+              <Link to={"/sellerDashboard"} className="text-decoration-none">
+                <div className="color-black font-semibold text-lg m-4 text-black	">
+                  Seller Dashboard
                 </div>
               </Link>
               <hr className="bg-black" />
@@ -93,19 +116,21 @@ export const Navbar = () => {
                 </div>
               </Link>
               <hr className="bg-black" />
-              <Link to={"/MyAds"} className="text-decoration-none">
+              {/* <Link to={"/MyAds"} className="text-decoration-none">
                 <div className="color-black font-semibold text-lg m-4 text-black	">
                   My Advertisements
                 </div>
-              </Link>
-              <hr className="bg-black" />
+        </Link>*/}
+              {/* <hr className="bg-black" /> */}
               <Link to={"/sellProducts"} className="text-decoration-none">
                 <div className="color-black font-semibold text-lg m-4 text-black	">
                   Sell
                 </div>
               </Link>
-              <hr className="bg-black"/>
-              <button className="rounded" onClick={logoutHandler}>LogOut</button>
+              <hr className="bg-black" />
+              <button className="rounded mt-8" onClick={logoutHandler}>
+                LogOut
+              </button>
             </div>
           </div>
         )}

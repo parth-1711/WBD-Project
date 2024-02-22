@@ -1,77 +1,79 @@
-import React from 'react';
-import './CSS/aboutUs.css';
-
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'jquery/dist/jquery.min.js'
-// import 'bootstrap/dist/js/bootstrap.min.js'
-
+import React from "react";
+import "./CSS/aboutUs.css";
 
 const AboutUsimports = () => {
-    return (
-      <head>
-        <link rel="icon" type="image/x-icon" href="/images/logo.png" />
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>About-Us</title>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" href="/CSS/aboutUs.css" />
-      </head>
-    );
-  };
+  return (
+    <head>
+      <link rel="icon" type="image/x-icon" href="/images/logo.png" />
+      <meta charSet="UTF-8" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>About-Us</title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossOrigin="anonymous"
+        referrerPolicy="no-referrer"
+      />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="/CSS/aboutUs.css" />
+    </head>
+  );
+};
 const AboutUs_1 = () => {
   return (
-    <div style={{backgroundColor:'#8B2BE6'}}>
-      <div className="top-div">
-        <div className="homeIcon"><a href="/"><i className="fas fa-home homehover" style={{ color: 'white' }}></i></a></div>
-        <div className="logo-flex">
-          <div>
-            <a className="aboutUs-twitter" href=""><i className="fab fa-twitter" style={{ fontSize: '36px', paddingBottom: '23px', color: 'rgb(212, 225, 237)' }}></i></a>
-          </div>
-          <div>
-            <a className="aboutUs-instagram" href=""><i className="fab fa-instagram" style={{ fontSize: '36px', paddingBottom: '23px', color: 'rgb(231, 135, 187)' }}></i></a>
-          </div>
-          <div>
-            <a className="aboutUs-gmail" href=""><i className="fas fa-envelope" style={{ fontSize: '36px', color: 'rgb(255, 255, 255)' }}></i></a>
+    <div>
+      <div className="flex flex-row bg-black border-y-2">
+        <div className="mb-10 flex-row m-auto border-y-4">
+          <h1 className=" text-orange-500">PHOENIX E-Mart</h1>
+        </div>
+        <div>
+          <div className="">
+            <div className="">
+              <img
+                src="https://w0.peakpx.com/wallpaper/72/140/HD-wallpaper-the-phoenix-fire-rebirth-logo-phoenix.jpg"
+                alt="phnx logo"
+                className="h-32"
+              ></img>
+            </div>
           </div>
         </div>
       </div>
-      <div className="heading">
-        <h1>About PHOENIX</h1>
-        <p>PHOENIX E-MART is an online platform for buying and selling of 2<sup>nd</sup> hand/used products.</p>
-      </div>
-      <div className="headingB">
-        <b><p>DISCOVER HIDDEN GEMS AT UNBEATABLE PRICES WITH OUR SECONDHAND STORE</p></b>
+      <div className="headingB pt-6 text-slate-900">
+        <b>
+          <p>
+            DISCOVER HIDDEN GEMS AT UNBEATABLE PRICES WITH OUR SECOND HAND STORE
+          </p>
+        </b>
       </div>
       <section className="about-us">
-        <img src="/images/aboutusimg.jpg" alt="img" />
+        <img
+          src="https://media.istockphoto.com/id/1194096608/vector/live-and-online-auction-set-vector-illustration.jpg?s=612x612&w=0&k=20&c=5isivXTD-9QkzYMZEfniW7SNXtfqpHJdZ6ZsZpi8XTs="
+          alt="img"
+          className="h-60"
+        />
         <div className="content">
-          <h2 style={{ color: 'black' }}>Experience</h2>
-          <p style={{ color: 'black' }}>It is a newly formed website currently under progress.
-            Currently languages used in the making of this website are :
-            1. HTML
-            2. CSS
-            3. Javascript
-            4. Node, Express JS
-            5. EJS
-            6. SQL
+          <h2 className="text-black underline ">Our Aim : </h2>
+          <p style={{ color: "black" }}>
+            To provide a userfriendly and trusted platform for trade of verified
+            2<sup>nd</sup> hand products. In future, we aim to provide a
+            platform for real-time auction/bidding of exclusing items and
+            collectibles. Stay tuned for further updates.
           </p>
         </div>
       </section>
-      <section className="about-us2" style={{ margin: '20px', marginBottom: '60px' }}>
-        <div className="content2">
-          <h2 style={{ color: 'white' }}>Team</h2>
+      <section className="about-us2 bg-fuchsia-400 w-auto h-full">
+        <div className="content">
+          <h2 style={{ color: "black" }} className="underline">
+            Team Members :
+          </h2>
           <p>
-            <ul style={{ color: 'white' }}>
+            <ul style={{ color: "white" }}>
               <li>Parth Irache</li>
               <li>Digvijay Ghule</li>
               <li>Rithick E</li>
@@ -80,10 +82,14 @@ const AboutUs_1 = () => {
             </ul>
           </p>
         </div>
-        <img src="/images/aboutusimg.jpg" alt="img" />
+        <img
+          src="https://blog.vantagecircle.com/content/images/2020/08/teamwork-and-team-building.png"
+          alt="img"
+          className="ml-10"
+        />
       </section>
     </div>
   );
 };
 
-export {AboutUs_1, AboutUsimports};
+export { AboutUs_1, AboutUsimports };
