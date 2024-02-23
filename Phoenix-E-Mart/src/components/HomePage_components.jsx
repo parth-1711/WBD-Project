@@ -105,16 +105,16 @@ const Corousel = () => {
       >
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <div className="imgtitle">Electronics</div>
+            <div className="imgtitle">Automobiles</div>
             <img
-              src="vehicles4.jpg"
+              src="cars-parked-upscaled (3).jpg"
               className="d-block w-100"
               alt="empty cell"
               style={heightstyle}
             />
           </div>
           <div className="carousel-item">
-            <div className="imgtitle">Automobiles</div>
+            <div className="imgtitle">Harware</div>
             <img
               src="hardware3.jpg"
               className="d-block w-100"
@@ -125,7 +125,7 @@ const Corousel = () => {
           <div className="carousel-item">
             <div className="imgtitle">Mobile Phones</div>
             <img
-              src="elec7_app.jpg"
+              src="mobile-phones-for-sale.jpg"
               className="d-block w-100"
               alt="empty cell"
               style={heightstyle}
