@@ -38,6 +38,25 @@ exports.getSingleProduct = async (req, res) => {
   }
 };
 
+exports.deleteProduct = async (req, res) => {
+  const productId = req.query.id;
+  console.log(productId);
+
+  try {
+    // Find and delete the user based on the user ID
+    const deletedProduct = await Product.findOneAndDelete({ _id: productId });
+
+    if (!deletedProduct) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    return res.status(201).json({ message: 'Product deleted successfully', deletedProduct });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
 
 
 exports.postProduct = async (req, res) => {
