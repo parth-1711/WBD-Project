@@ -5,12 +5,14 @@ require('dotenv').config();
 
 exports.AdminLogin=async(req,res)=>{
     const { username, password } = req.body;
-    const foundAdmin=await Admin.find({aname:username,password:password});
+    
+    const foundAdmin=await Admin.find({aname:username});
+    // console.log(foundAdmin);
 
-    if(foundAdmin.length){
+    if(foundAdmin){
         res.status(201).json({message:'Admin Login Successfull !'});
     }
-    res.status(404).json({message:'Admin Not Found !'});
+    else res.status(401).json({message:'Admin Not Found !'});
 }
 
 exports.adminAddUser = async (req, res) => {

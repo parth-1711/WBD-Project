@@ -42,7 +42,24 @@ const LoginForm = () => {
       }
     }
     else{
-      navigate('/admin');
+      let response = await fetch("http://localhost:8000/AdminLogin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      // console.log(response.status);
+      let data = await response.json();
+      // dispatch(authActions.login(data))
+      // console.log(data);
+      if(response.status==201){
+        toast.success("Account Already Verified",{position:"top-center"});
+        navigate('/admin')
+      }
+      if(response.status==401){
+        toast.error(data.message,{position:"top-center"});
+      }
     }
   };
   return (

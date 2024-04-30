@@ -21,7 +21,7 @@ const Home = () => {
       }
       );
       const data = await response.json();
-      console.log(data.products);
+      // console.log(data.products);
       setProductList(data.products);
       // return data;
     };
