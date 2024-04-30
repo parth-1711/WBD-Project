@@ -24,6 +24,7 @@ exports.verifyToken = (req, res, next) => {
   });
 }
 
+
 exports.signUp = async (req, res) => {
   const { username, Email, password } = req.body;
   const user = await User.find({ email: Email});

@@ -78,7 +78,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "../scenes/calendar/calendar";
 import Graph from '../components/Graph';
-
+import Products from '../scenes/products/'
 function Admin() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -102,6 +102,8 @@ function Admin() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/geography" element={<Geography />} />
+              <Route path="/products" element={<Products/>} />
+
             </Routes>
           </main>
         </div>

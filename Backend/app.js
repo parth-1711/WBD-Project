@@ -1,25 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const morgan = require("morgan");
-let rfs = require("rotating-file-stream");
-const helmet = require("helmet");
-let path = require("path");
-require("dotenv").config();
+const morgan=require('morgan')
+let rfs=require('rotating-file-stream');
+const helmet=require('helmet');
+let path=require('path');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
-const cors = require("cors");
+const swaggerOptions = require('./swaggerOptions');
 
-// const mongodbURI = process.env.MONGOURI
+const cors=require('cors')
 
-// mongoose.connect(mongodbURI, { useNewUrlParser: true })
-const productRoutes = require("./Routes/Product");
-const offerRoutes = require("./Routes/Offers");
-const userRoutes = require("./Routes/User");
-const queryRoutes = require("./Routes/Query");
-const AdminRoutes = require("./Routes/Admin");
-const connectDB = require("./utils/connectToDB");
+const mongodbURI = "mongodb+srv://parthirache8:ufPeWVX7HabgpyVh@cluster0.eo9svyz.mongodb.net/Phoenix-E-Mart"
 
-connectDB();
+mongoose.connect(mongodbURI, { useNewUrlParser: true })
 
 const app = express();
 app.use("/images", express.static(path.join(__dirname, "images")));
@@ -40,6 +35,11 @@ app.use(offerRoutes);
 app.use(userRoutes);
 app.use(queryRoutes);
 app.use(AdminRoutes);
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Serve Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use((err, req, res, next) => {
   console.log(err.stack);
