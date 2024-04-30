@@ -66,9 +66,10 @@ exports.getUserProfile = (req, res) => {
 exports.getAllUsers = async (req, res) => {
   try {
     let users = await User.find({});
-    res.json({ users: users })
+    res.status(200).json({ users: users })
   } catch (error) {
     console.log(error);
+    res.status(404).json({message:'Something went wrong'})
   }
 }
 

@@ -1,10 +1,18 @@
 const Product = require("../models/Product");
 
 const mongoose = require("mongoose");
+const { redisClient } = require("../utils/redis.utis");
 
 exports.getAllProducts = async (req, res) => {
   try {
     const productArray = await Product.find({});
+    for (let i = 0; i < 16; i++) {
+      redisClient.get(productArray[i].id,async(err,chachedProduct)=>{
+        if(err) throw err;
+        if(!chachedProduct) redisClient.setex(productArray[i].id,300,JSON.stringify(productArray[i]))
+      })
+      
+    }
     res.json({ products: productArray });
   } catch (error) {
     console.log(error);
@@ -16,23 +24,36 @@ exports.getSearchResults = async (req, res) => {
     const searchmethod = req.query.method;
     const searchString = req.query.searchString;
     let foundProducts;
-    if (searchmethod == 'tags') {
+    if (searchmethod == "tags") {
       foundProducts = await Product.find({ tags: searchString });
-    }
-    else {
-      foundProducts = await Product.find({ title: new RegExp(searchString, 'i') })
+    } else {
+      foundProducts = await Product.find({
+        title: new RegExp(searchString, "i"),
+      });
     }
     res.status(201).json({ foundProducts });
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 exports.getSingleProduct = async (req, res) => {
   try {
     const id = req.query.productId;
-    const product = await Product.find({ _id: id });
-    res.json({ product });
+    redisClient.get(id, async (err, cachedData) => {
+      if (err) throw err;
+      if (cachedData) {
+        let product=[]
+        product.push(JSON.parse(cachedData))
+        return res.status(200).json({product});}
+      else {
+        const product = await Product.find({ _id: id });
+        // console.log(product);
+        if(!product) return res.status(404).json({message:'Product not found !'})
+        redisClient.setex(id,600,JSON.stringify(product))
+        res.json({ product });
+      }
+    });
   } catch (error) {
     console.log(error);
   }
@@ -61,10 +82,11 @@ exports.deleteProduct = async (req, res) => {
 
 exports.postProduct = async (req, res) => {
   try {
+    // const productDetails = req.body;
     const { title, description, age, price, owner, address, tags } = req.body;
-
-    // Check if req.files exists and is an array before calling map
-    const images = req.files && Array.isArray(req.files) ? req.files.map(file => "http://localhost:8000/images/" + file.filename) : [];
+    const images = req.files.map(
+      (file) => "http://localhost:8000/images/" + file.filename
+    );
 
     let newProduct = new Product({
       title: title,
@@ -74,7 +96,7 @@ exports.postProduct = async (req, res) => {
       owner: owner,
       imgs: images,
       address: address,
-      tags: tags
+      tags: tags,
     });
     await newProduct.save();
     res.status(201).json({ message: "Product Added Successfully !" });
