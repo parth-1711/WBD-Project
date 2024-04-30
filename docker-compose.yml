@@ -15,7 +15,7 @@ services:
       - phoenix-emart
 networks:
   phoenix-emart:
-    driver: bridge
+    driver: bridge  
 
 
 

@@ -57,7 +57,7 @@ const Categories = () => {
         >
           <div className="categories">
             <img className="catimg" src="smartphone.png" alt="elecimg" />
-            <h6>Moibles</h6>
+            <h6>Mobiles</h6>
           </div>
         </Link>
         <Link
@@ -114,7 +114,7 @@ const Corousel = () => {
             />
           </div>
           <div className="carousel-item">
-            <div className="imgtitle">Harware</div>
+            <div className="imgtitle">Hardware</div>
             <img
               src="hardware3.jpg"
               className="d-block w-100"
