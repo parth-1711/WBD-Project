@@ -82,12 +82,17 @@ const Topbar = () => {
           </Button>{" "}
         </Link>
         <Link
-          to="/admin/invoices"
-          
-        >
+          to="/admin/invoices">
           {" "}
           <Button color="buttons" style={{ margin: "1rem" }}>
             Transaction Invoices
+          </Button>{" "}
+        </Link>
+        <Link
+          to="/admin/products">
+          {" "}
+          <Button color="buttons" style={{ margin: "1rem" }}>
+            Products
           </Button>{" "}
         </Link>
       </Box>

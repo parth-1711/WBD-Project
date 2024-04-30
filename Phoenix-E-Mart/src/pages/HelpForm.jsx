@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import "./help.css";
 import { useSelector } from "react-redux";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const HelpPage = () => {
   const [queryValue, setQueryValue] = useState("");
@@ -36,7 +37,7 @@ const HelpPage = () => {
         <div className="help-header" style={{ width: "100%" }}>
           <h2
             style={{ paddingTop: "40px" }}
-            className="text-orange-500 text-2xl"
+            className="text-purple-500 text-2xl"
           >
             HI, WE ARE HERE TO HELP YOU !
           </h2>
@@ -49,23 +50,17 @@ const HelpPage = () => {
           {/* Category Blocks */}
           <div className="category-block">
             <a href="/FAQ">
-              <i
-                className="fa fa-user"
-                style={{ fontSize: "60px", color: "rgb(107, 19, 189)" }}
-              ></i>
+            <i className="bi bi-person me-3 fs-4" style={{color:'white'}}></i>
             </a>
-            <div className="category-title" style={{ paddingTop: "20px" }}>
+            <div className="text-purple-500 text-2xl" style={{ paddingTop: "20px" }}>
               Seller FAQS
             </div>
           </div>
           <div className="category-block">
             <a href="/FAQ">
-              <i
-                className="fa fa-user"
-                style={{ fontSize: "60px", color: "rgb(107, 19, 189)" }}
-              ></i>
+            <i className="bi bi-person me-3 fs-4"  style={{color:'white'}}></i>
             </a>
-            <div className="category-title" style={{ paddingTop: "20px" }}>
+            <div className="text-purple-500 text-2xl" style={{ paddingTop: "20px" }}>
               Buyer FAQS
             </div>
           </div>
@@ -73,12 +68,9 @@ const HelpPage = () => {
           {/* General Queries */}
           <div className="category-block">
             <a href="/FAQ">
-              <i
-                className="fa fa-question-circle"
-                style={{ fontSize: "60px", color: "rgb(107, 19, 189)" }}
-              ></i>
+            <i className="bi bi-person me-3 fs-4"  style={{color:'white'}}></i>
             </a>
-            <div className="category-title" style={{ paddingTop: "20px" }}>
+            <div className="text-purple-500 text-2xl" style={{ paddingTop: "20px" }}>
               Genaral Queries
             </div>
           </div>
@@ -86,12 +78,9 @@ const HelpPage = () => {
           {/* Legal Information */}
           <div className="category-block">
             <a href="/FAQ">
-              <i
-                className="fa fa-question-circle"
-                style={{ fontSize: "60px", color: "rgb(107, 19, 189)" }}
-              ></i>
+            <i className="bi bi-person me-3 fs-4"  style={{color:'white'}}></i>
             </a>
-            <div className="category-title" style={{ paddingTop: "20px" }}>
+            <div className="text-purple-500 text-2xl" style={{ paddingTop: "20px" }}>
               Legal Information
             </div>
           </div>
@@ -145,7 +134,7 @@ const HelpPage = () => {
             <br />
             <button
               type="submit"
-              className="sbtbtnq bg-slate-500"
+              className="sbtbtnq bg-purple-500"
               style={{
                 marginLeft: "10px",
                 marginBottom: "40px",
@@ -154,6 +143,12 @@ const HelpPage = () => {
             >
               Submit
             </button>
+          </form>
+          <form id="help-form" action="/upload" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+              <input type="file" name="file"  />
+              <button type="submit" className="sbtbtnq bg-purple-500" style={{ marginLeft: '10px', marginBottom: '40px', marginTop: '10px' }}>
+                Submit
+              </button>
           </form>
         </div>
         <br />

@@ -5,7 +5,10 @@ const morgan=require('morgan')
 let rfs=require('rotating-file-stream');
 const helmet=require('helmet');
 let path=require('path');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
+const swaggerOptions = require('./swaggerOptions');
 
 const cors=require('cors')
 
@@ -36,6 +39,11 @@ app.use(offerRoutes);
 app.use(userRoutes);
 app.use(queryRoutes);
 app.use(AdminRoutes);
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Serve Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(8000,()=>{
     console.log('server is up and running !');

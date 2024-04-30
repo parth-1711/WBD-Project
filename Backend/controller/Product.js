@@ -38,13 +38,33 @@ exports.getSingleProduct = async (req, res) => {
   }
 };
 
+exports.deleteProduct = async (req, res) => {
+  const productId = req.query.id;
+  console.log(productId);
+
+  try {
+    // Find and delete the user based on the user ID
+    const deletedProduct = await Product.findOneAndDelete({ _id: productId });
+
+    if (!deletedProduct) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    return res.status(201).json({ message: 'Product deleted successfully', deletedProduct });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
 
 
 exports.postProduct = async (req, res) => {
   try {
-    // const productDetails = req.body;
-    const { title, description, age, price,owner, address,tags } = req.body;
-    const images = req.files.map(file => "http://localhost:8000/images/"+file.filename);
+    const { title, description, age, price, owner, address, tags } = req.body;
+
+    // Check if req.files exists and is an array before calling map
+    const images = req.files && Array.isArray(req.files) ? req.files.map(file => "http://localhost:8000/images/" + file.filename) : [];
 
     let newProduct = new Product({
       title: title,
@@ -54,11 +74,12 @@ exports.postProduct = async (req, res) => {
       owner: owner,
       imgs: images,
       address: address,
-      tags:tags
+      tags: tags
     });
     await newProduct.save();
     res.status(201).json({ message: "Product Added Successfully !" });
   } catch (error) {
     console.log(error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
