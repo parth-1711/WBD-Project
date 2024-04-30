@@ -1,5 +1,5 @@
 import React from "react";
-import BannerBackground from "../Assets/home-banner-background.png";
+// import BannerBackground from "../assets/home-banner-background.png";
 import { FiArrowRight } from "react-icons/fi";
 import "./Landing.css";
 import { useSelector } from "react-redux";
