@@ -12,11 +12,21 @@ const swaggerOptions = require('./swaggerOptions');
 
 const cors=require('cors')
 
-const mongodbURI = "mongodb+srv://parthirache8:ufPeWVX7HabgpyVh@cluster0.eo9svyz.mongodb.net/Phoenix-E-Mart"
+const productRoutes=require('./Routes/Product');
+const offerRoutes=require('./Routes/Offers')
+const userRoutes=require('./Routes/User');
+const queryRoutes=require('./Routes/Query');
+const AdminRoutes=require('./Routes/Admin');
+const connectDB = require("./utils/connectToDB");
 
-mongoose.connect(mongodbURI, { useNewUrlParser: true })
+// const mongodbURI = "mongodb+srv://parthirache8:ufPeWVX7HabgpyVh@cluster0.eo9svyz.mongodb.net/Phoenix-E-Mart"
+
+// mongoose.connect(mongodbURI, { useNewUrlParser: true })
 
 const app = express();
+
+connectDB()
+
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use(cors());
