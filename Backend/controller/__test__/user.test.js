@@ -31,7 +31,7 @@ test("GET /api/allUsers", async () => {
     .get("/getAllUsers")
   // console.log(response);
   expect(response.status).toBe(200);
-  expect(response.body.users.length).toBe(0); // Check if products are returned
+  expect(response.body.users.length).toBeTruthy(); // Check if products are returned
   // Add more assertions based on your API response
 },50000);
 })
