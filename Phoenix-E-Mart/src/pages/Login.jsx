@@ -42,7 +42,7 @@ const LoginForm = () => {
       }
     }
     else{
-      let response = await fetch("http://localhost:8000/AdminLogin", {
+      let response = await fetch(`${import.meta.env.VITE_API_URL}/AdminLogin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

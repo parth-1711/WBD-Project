@@ -18,7 +18,7 @@ const HelpPage = () => {
     };
     console.log(qry);
     // Perform your AJAX request or any other form submission logic here
-    let response = await fetch("http://localhost:8000/postQwuery", {
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/postQwuery`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

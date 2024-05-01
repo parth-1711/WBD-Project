@@ -9,7 +9,7 @@ const AfterSearch = () => {
     console.log(params.get('searchString'));
 
     const [foundProducts,SetFoundProducts]=useState([]);
-    let url='http://localhost:8000/getSearchResults?method='+method+'&searchString='+searchstring;
+    let url=import.meta.env.VITE_API_URL+'/getSearchResults?method='+method+'&searchString='+searchstring;
     useEffect(()=>{
         const fetchresults=async()=>{
             let response=await fetch(url);

@@ -6,7 +6,7 @@ const MyAds = () => {
     const authSlice=useSelector((state)=>state.auth)
     useEffect(()=>{
         const fetchProduct=async()=>{
-            const response=await fetch('http://localhost:8000/getAllProducts',{
+            const response=await fetch(`${import.meta.env.VITE_API_URL}/getAllProducts`,{
             headers:{
               'Authorization':localStorage.getItem('token')
             }}

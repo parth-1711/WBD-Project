@@ -31,7 +31,7 @@ const ChangePasswordForm = () => {
         new_password: newPassword
       }
     
-    let response=await fetch('http://localhost:8000/changePass',
+    let response=await fetch(`${import.meta.env.VITE_API_URL}/changePass`,
       {
         method:'POST',
         headers: {
@@ -42,7 +42,7 @@ const ChangePasswordForm = () => {
       result = result.users.filter((i)=> i.uname==authSlice.user.uname)
       const temp = result[0]
       if (temp.password==oldPassword){
-        let response=await fetch('http://localhost:8000/updatePass',
+        let response=await fetch(`${import.meta.env.VITE_API_URL}/updatePass`,
         {
         method:'GET',
         headers: {

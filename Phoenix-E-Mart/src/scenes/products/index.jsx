@@ -48,7 +48,7 @@ const Contacts = () => {
     setIsFetching(true);
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:8000/getAllProducts");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/getAllProducts`);
 
         if (!response.ok) {
           throw new Error("Some error occured while fetching list of products!");
@@ -80,7 +80,7 @@ const Contacts = () => {
     console.log(id);
     setToggle(false);
       const response = await fetch(
-        "http://localhost:8000/deleteProduct/?id=" + id,
+        `${import.meta.env.VITE_API_URL}/deleteProduct/?id=` + id,
         {
           method: "DELETE",
         }

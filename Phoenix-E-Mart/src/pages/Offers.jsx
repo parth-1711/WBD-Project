@@ -8,7 +8,7 @@ const Offers = () => {
   const authSlice = useSelector((state) => state.auth);
   useEffect(() => {
     const fetchOffers = async () => {
-      let response = await fetch("http://localhost:8000/getAllOffers");
+      let response = await fetch(`${import.meta.env.VITE_API_URL}/getAllOffers`);
       let data = await response.json();
       console.log(data);
       setOffers(

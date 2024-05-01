@@ -20,7 +20,7 @@ const FAQ = () => {
     setIsFetching(true);
     const fetchQueries = async () => {
       try {
-        const response = await fetch("http://localhost:8000/getAllQuery");
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/getAllQuery`);
 
         if (!response.ok) {
           throw new Error("Some error occured while fetching queries!");

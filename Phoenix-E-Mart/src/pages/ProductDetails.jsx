@@ -28,7 +28,7 @@ const ProductDetails = () => {
   useEffect(() => {
     //to get details of the product
     let url =
-      "http://localhost:8000/getSingleProduct?productId=" + params.get("param");
+      `${import.meta.env.VITE_API_URL}/getSingleProduct?productId=` + params.get("param");
     // console.log(url);
     const fetchProducts = async () => {
       const response = await fetch(url);
@@ -57,7 +57,7 @@ const ProductDetails = () => {
       owner: product1.owner,
       amount: priceRef.current.value,
     };
-    const response = await fetch("http://localhost:8000/postOffer", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/postOffer`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

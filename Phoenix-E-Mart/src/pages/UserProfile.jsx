@@ -11,7 +11,7 @@ const UserProfile = () => {
 
   useEffect(()=>{
     const fetchProduct=async()=>{
-        const response=await fetch('http://localhost:8000/getAllProducts');
+        const response=await fetch(`${import.meta.env.VITE_API_URL}/getAllProducts`);
         const data=await response.json();
         console.log(data);
         setProducts(data.products.filter((product)=>product.owner==authSlice.user.uname))

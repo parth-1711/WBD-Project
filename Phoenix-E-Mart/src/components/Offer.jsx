@@ -14,7 +14,7 @@ const Offer = (props) => {
   // console.log(props.productId);
 
   const onCLickHandler=async()=>{
-    let url='http://localhost:8000/updateOffers?pid='+props.productId+'&oid='+props.offerId
+    let url=import.meta.env.VITE_API_URL+'/updateOffers?pid='+props.productId+'&oid='+props.offerId
     let response=await fetch(url)
     let data=await response.json();
     setToggle(!toggle)

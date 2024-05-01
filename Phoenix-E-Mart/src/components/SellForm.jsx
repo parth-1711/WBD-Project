@@ -68,7 +68,7 @@ function SellForm() {
       console.log(form);
 
       let response = await axios.post(
-        "http://localhost:8000/postProduct",
+        `${import.meta.env.VITE_API_URL}/postProduct`,
         form,
         {
           headers: {

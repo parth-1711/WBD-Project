@@ -13,7 +13,7 @@ const Home = () => {
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("http://localhost:8000/getAllProducts",
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/getAllProducts`,
       {
         headers:{
           'Authorization':localStorage.getItem('token')

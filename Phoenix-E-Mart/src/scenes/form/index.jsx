@@ -11,7 +11,7 @@ const Form = () => {
 
   const handleFormSubmit = async (values, { resetForm }) => {
     console.log(values);
-    const response = await fetch("http://localhost:8000/adminAddUser", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/adminAddUser`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {

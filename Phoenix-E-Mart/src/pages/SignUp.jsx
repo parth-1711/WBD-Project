@@ -14,7 +14,7 @@ const RegistrationForm = () => {
       Email:email.current.value,
       password:password.current.value
     }
-    let response=await fetch('http://localhost:8000/signUp',
+    let response=await fetch(`${import.meta.env.VITE_API_URL}/signUp`,
     {
       method:'POST',
       headers: {
