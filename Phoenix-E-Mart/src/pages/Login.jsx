@@ -22,7 +22,7 @@ const LoginForm = () => {
     console.log(user);
 
     if (role.current.value == "user") {
-      let response = await fetch("http://localhost:8000/signIn", {
+      let response = await fetch(`${import.meta.env.VITE_API_URL}/signIn`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
