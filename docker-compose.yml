@@ -19,6 +19,8 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
+    networks:
+      - phoenix-emart
 networks:
   phoenix-emart:
     driver: bridge  
