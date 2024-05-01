@@ -10,7 +10,6 @@ exports.getAllOffers = async (req, res) => {
   }
 };
 
-
 exports.updateOffers = async (req, res) => {
   try {
     let pID = req.query.pid;

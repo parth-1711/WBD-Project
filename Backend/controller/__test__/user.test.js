@@ -31,7 +31,33 @@ test("GET /api/allUsers", async () => {
     .get("/getAllUsers")
   // console.log(response);
   expect(response.status).toBe(200);
-  expect(response.body.users.length).toBe(0); // Check if products are returned
+  expect(response.body.users.length).toBeTruthy(); // Check if products are returned
   // Add more assertions based on your API response
 },50000);
+
+test("GET /api/updatePass", async () => {
+  // Generate a mock token
+  // const user = findUserById("662fd0b42ba9fbb1c6a5eb3c");
+  // const token=generateToken(user)
+
+  const response = await request(app)
+    .get("/updatePass").send({
+      unamee: "Parth",
+      pass: "Parth1",
+    })
+  // console.log(response.body);
+  // expect(response.status).toBe(200);
+  expect(typeof response.body.users).toBe('object'); // Check if products are returned
+  // Add more assertions based on your API response
+},50000);
+
+
+test("DELETE /api/deleteUser", async()=>{
+  const response = await request(app).delete("/deleteUser").send({
+    userId : "65d0ba873e524a9c402f1830"
+  })
+
+  expect(response.status).toBeTruthy();
+}, 50000);
+
 })

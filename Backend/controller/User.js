@@ -102,7 +102,6 @@ exports.changePass = async (req, res) => {
 }
 
 exports.updatePass = async(req,res) => {
-
   try {
     let unamee= req.body.username
     let pass = req.body.newPass

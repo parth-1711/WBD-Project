@@ -37,6 +37,7 @@ exports.getSearchResults = async (req, res) => {
   }
 };
 
+
 exports.getSingleProduct = async (req, res) => {
   try {
     const id = req.query.productId;

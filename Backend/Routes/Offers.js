@@ -91,7 +91,6 @@ router.get("/getSingleOffer", OfferController.getSingleOffer);
  *         description: Internal Server Error
  */
 
-
 router.post("/postOffer", OfferController.postOffer);
 /**
  * @swagger

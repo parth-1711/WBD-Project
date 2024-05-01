@@ -13,6 +13,7 @@ exports.postQwuery=async(req,res)=>{
     res.status(201).json({ message: "Query sent Successfully !" });
 }
 
+
 exports.getAllQuery=async(req,res)=>{
     try {
         let querries=await Query.find({});

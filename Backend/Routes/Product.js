@@ -63,6 +63,7 @@ const upload = multer({ storage: storage });
  *                         type: string
  *                         description: The address of the product
  */
+
 router.get("/getAllProducts", productController.getAllProducts);
 /**
  * @swagger
