@@ -64,8 +64,9 @@ const Myoffers = () => {
                     : item.offerStatus == 0
                     ? "Pending"
                     : "Accepted"}
+                {item.offerStatus==1 && <button>Buy</button>}
+
                 </div>
-                {item.offerStatus==1 && <button/>}
               </div>
             </Link>
           ))
