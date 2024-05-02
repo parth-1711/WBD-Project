@@ -33,3 +33,7 @@ npm run dev
 deployed link
 
 https://wbd-project-g9tong9om-parth1711s-projects.vercel.app/
+
+api-docs
+
+https://wbd-project-blke.onrender.com/api-docs
