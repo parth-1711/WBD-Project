@@ -39,7 +39,7 @@ const Myoffers = () => {
           offers.map((item) => (
             <Link key={item._id} to={`/productDetails?param=${item.productid}`}>
               <div className="offer-list ">
-                <img src={item.imgs[0]} alt={item.productName} width="10%" />
+                {/* <img src={item.imgs[0]} alt={item.productName} width="10%" /> */}
                 <div
                   className="product-text"
                   style={{
