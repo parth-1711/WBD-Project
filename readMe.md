@@ -28,3 +28,8 @@ npm install
 //To start frontend
 
 npm run dev
+
+
+deployed link
+
+https://wbd-project-g9tong9om-parth1711s-projects.vercel.app/
