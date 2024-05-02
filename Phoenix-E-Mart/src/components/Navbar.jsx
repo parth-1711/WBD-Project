@@ -71,7 +71,7 @@ export const Navbar = () => {
         </form>
         <ul className={menuOpen ? "open" : ""}>
           <li>
-            <NavLink to="/aboutUs" className="menu-links ml-6">
+            <NavLink to="/aboutUs" className="menu-links ml-6 px-1">
               About Us
             </NavLink>
           </li>
