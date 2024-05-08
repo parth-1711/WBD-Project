@@ -4,15 +4,26 @@ const multer = require("multer");
 const router = express.Router();
 const productController = require("../controller/Product");
 const user = require("../controller/User");
+const cloudinary = require("cloudinary").v2;
+// const {CloudinaryStorage} = require("multer-storage-cloudinary");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    return cb(null, "./images"); // Directory to save uploads
-  },
-  filename: (req, file, cb) => {
-    return cb(null, file.originalname); // Unique filename
-  },
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET_KEY,
 });
+
+const storage = multer.diskStorage({})
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     return cb(null, "./images"); // Directory to save uploads
+//   },
+//   filename: (req, file, cb) => {
+//     return cb(null, file.originalname); // Unique filename
+//   },
+// });
 
 const upload = multer({ storage: storage });
 

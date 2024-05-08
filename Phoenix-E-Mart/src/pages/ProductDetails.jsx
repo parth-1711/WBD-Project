@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const [params] = useSearchParams();
-  console.log(params.get("param"));
+  // console.log(params.get("param"));
   const product = {
     title: "Product 1",
     description: "This is test product",
@@ -28,20 +28,20 @@ const ProductDetails = () => {
   useEffect(() => {
     //to get details of the product
     let url =
-      `${import.meta.env.VITE_API_URL}/getSingleProduct?productId=` + params.get("param");
+      `${import.meta.env.VITE_API_URL}/getSingleProduct?productId=` +
+      params.get("param");
     // console.log(url);
     const fetchProducts = async () => {
       const response = await fetch(url);
       const data = await response.json();
-      // console.log(data.product[0]);
-      setProduct1(data.product[0]);
+      console.log(data.product[0][0]);
+      setProduct1(data.product[0][0]);
       // setProductList(data.products)
       // return data;
+      console.log(product1.imgs);
     };
     fetchProducts();
   }, []);
-
-  // console.log(product1);
 
   const priceRef = useRef();
   const submitHandler = async (event) => {
@@ -49,7 +49,7 @@ const ProductDetails = () => {
     if (!auth.isAuth) {
       navigate("/login");
     }
-    console.log(priceRef.current.value);
+    // console.log(priceRef.current.value);
     let Offer = {
       offerer: auth.user.uname,
       productName: product1.title,
@@ -67,7 +67,7 @@ const ProductDetails = () => {
 
     const result = await response.json();
     navigate("/MyOffers");
-    // console.log(result);
+    console.log(result);
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-9">

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const ProductImageCarousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  console.log(images);
   const goToPrevSlide = () => {
     const index = (currentIndex + images.length - 1) % images.length;
     setCurrentIndex(index);

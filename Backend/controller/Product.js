@@ -2,6 +2,15 @@ const Product = require("../models/Product");
 
 const mongoose = require("mongoose");
 const { redisClient } = require("../utils/redis.utis");
+const cloudinary = require("cloudinary").v2;
+require('dotenv').config()
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET_KEY,
+});
+
 
 exports.getAllProducts = async (req, res) => {
   try {
@@ -85,9 +94,14 @@ exports.postProduct = async (req, res) => {
   try {
     // const productDetails = req.body;
     const { title, description, age, price, owner, address, tags } = req.body;
-    const images = req.files.map(
-      (file) => "http://localhost:8000/images/" + file.filename
-    );
+    let images=[]
+    for(const file of req.files){
+      let result=await cloudinary.uploader.upload(file.path)
+      images.push(result.url);
+    }
+    // const images = req.files.map(
+    //   (file) => "http://localhost:8000/images/" + file.filename
+    // );
 
     let newProduct = new Product({
       title: title,
