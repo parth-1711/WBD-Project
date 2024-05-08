@@ -53,8 +53,8 @@ exports.getSingleProduct = async (req, res) => {
     redisClient.get(id, async (err, cachedData) => {
       if (err) throw err;
       if (cachedData) {
-        let product=[]
-        product.push(JSON.parse(cachedData))
+        let product=JSON.parse(cachedData)
+        // product.push(JSON.parse(cachedData))
         return res.status(200).json({product});}
       else {
         const product = await Product.find({ _id: id });
