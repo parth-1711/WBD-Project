@@ -57,7 +57,7 @@ exports.getSingleProduct = async (req, res) => {
         // product.push(JSON.parse(cachedData))
         return res.status(200).json({product});}
       else {
-        const product = await Product.find({ _id: id });
+        const product = await Product.findOne({ _id: id });
         // console.log(product);
         if(!product) return res.status(404).json({message:'Product not found !'})
         redisClient.setex(id,600,JSON.stringify(product))

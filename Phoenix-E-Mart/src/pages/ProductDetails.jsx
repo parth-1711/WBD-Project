@@ -34,8 +34,8 @@ const ProductDetails = () => {
     const fetchProducts = async () => {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data.product[0]);
-      setProduct1(data.product[0]);
+      console.log(data.product);
+      setProduct1(data.product);
       // setProductList(data.products)
       // return data;
       console.log(product1.imgs);
